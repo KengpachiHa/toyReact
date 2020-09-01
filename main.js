@@ -1,19 +1,20 @@
-function createElement (tagName, attrs, ...childElements) {
-  const e = document.createElement(tagName)
-  for (const key in attrs) {
-    e[key] = attrs[key]
+import { createElement, Component, render } from './toy-react'
+
+class Mycomponent extends Component{
+  render() {
+    return <div>
+      <h1>my component</h1>
+      {this.children}
+    </div>
   }
-  for (const child of childElements) {
-    e.appendChild(child)
-  }
-  return e
 }
 
 
 
-window.a = 
-<div id="gg" class="dd">
-  <div></div>
-  <div></div>
-  <div></div>
-</div>
+
+render( 
+  <Mycomponent id="gg" class="dd">
+    <div>abc</div>
+    <div></div>
+    <div></div>
+  </Mycomponent>, document.body)
